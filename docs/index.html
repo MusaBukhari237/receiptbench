@@ -1,38 +1,125 @@
 <!doctype html>
 <html lang="en" data-app="receiptbench">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self'; connect-src 'none'; base-uri 'none'; form-action 'none'; object-src 'none'">
-<title>Preview thermal receipts | ReceiptBench</title>
-<meta name="description" content="Build a print-ready receipt for 58 mm or 80 mm paper with exact decimal line totals.">
-<link rel="canonical" href="https://musabukhari237.github.io/receiptbench/">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Preview thermal receipts | ReceiptBench">
-<meta property="og:description" content="Build a print-ready receipt for 58 mm or 80 mm paper with exact decimal line totals.">
-<meta property="og:url" content="https://musabukhari237.github.io/receiptbench/">
-<meta property="og:image" content="https://musabukhari237.github.io/receiptbench/preview.png">
-<meta property="og:image:alt" content="ReceiptBench showing the tool with an example result">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="logo.svg" type="image/svg+xml">
-<link rel="stylesheet" href="app.css">
-<script src="app.mjs" type="module"></script>
-  <script type="module" src="experience.mjs"></script>
-  <script type="module" src="experience.mjs"></script>
-</head>
-<body>
-<a class="skip" href="#workspace">Skip to workspace</a>
-<header><a class="brand" href="./"><img src="logo.svg" alt="">ReceiptBench</a><nav aria-label="Main"><a href="#guide">How to use</a><a class="repo" href="https://github.com/MusaBukhari237/receiptbench">GitHub ↗</a></nav></header>
-<main>
-<section class="masthead"><div class="intro"><p class="category">The receipt desk</p><h1>Good coffee. Clear receipts.</h1><p class="description">Build a tidy thermal receipt with exact decimal totals, then send it to your printer.</p></div><figure class="scene"><img src="Scene.jpg" alt="Coffee served on a warm café table" width="1000" height="667" fetchpriority="high"></figure></section>
-<div class="workspace" id="workspace">
-<section class="panel input" aria-labelledby="settings"><h2 id="settings">Build your receipt</h2>
-<div class="fields"><label class="wide">One item per line<textarea id="items" placeholder="Item | Quantity | Unit price" maxlength="8000" spellcheck="false" rows="6"></textarea></label><label>Currency<select id="currency"><option value="USD">USD</option><option value="EUR">EUR</option><option value="GBP">GBP</option><option value="CAD">CAD</option><option value="PKR">PKR</option></select></label><label>Paper<select id="paper"><option value="58">58 mm</option><option value="80">80 mm</option></select></label></div><div class="actions"><button type="button" id="run">Preview receipt</button><button type="button" class="quiet" id="example">Load example</button></div><p class="note">Enter item | quantity | unit price. Use a decimal point and up to two decimal places.</p>
-</section>
-<section class="panel output" aria-labelledby="output" id="output-panel"><h2 id="output" tabindex="-1">The printed piece</h2><p class="result-status" id="result-status" aria-live="polite">Ready when you are</p><div class="result" id="result" aria-live="polite">Load the example or enter your own input.</div></section>
-</div>
-<details class="guide" id="guide"><summary>How to use ReceiptBench</summary><ol><li>Enter one item per line as name | quantity | unit price.</li><li>Choose a currency and 58 mm or 80 mm paper.</li><li>Generate the receipt and use its Print receipt button.</li></ol></details>
-</main>
-<footer><span>ReceiptBench · <a href="https://github.com/MusaBukhari237/receiptbench/blob/main/LICENSE">MIT licensed</a></span><span class="credits"><a href="https://www.leadceleris.com/">LeadCeleris</a><a href="https://www.aifficiento.biz/">AIFFICIENTO</a><a href="Assets.md">Photo credits</a></span></footer>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self'; connect-src 'none'; base-uri 'none'; form-action 'none'; object-src 'none'"
+    />
+    <title>Preview thermal receipts | ReceiptBench</title>
+    <meta
+      name="description"
+      content="Build a print-ready receipt for 58 mm or 80 mm paper with exact decimal line totals."
+    />
+    <link rel="canonical" href="https://musabukhari237.github.io/receiptbench/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Preview thermal receipts | ReceiptBench" />
+    <meta
+      property="og:description"
+      content="Build a print-ready receipt for 58 mm or 80 mm paper with exact decimal line totals."
+    />
+    <meta property="og:url" content="https://musabukhari237.github.io/receiptbench/" />
+    <meta property="og:image" content="https://musabukhari237.github.io/receiptbench/preview.png" />
+    <meta property="og:image:alt" content="ReceiptBench showing the tool with an example result" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="logo.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="app.css" />
+    <script src="app.mjs" type="module"></script>
+    <script type="module" src="experience.mjs"></script>
+    <script type="module" src="experience.mjs"></script>
+  </head>
+  <body>
+    <a class="skip" href="#workspace">Skip to workspace</a>
+    <header>
+      <a class="brand" href="./"><img src="logo.svg" alt="" />ReceiptBench</a>
+      <nav aria-label="Main">
+        <a href="#guide">How to use</a
+        ><a class="repo" href="https://github.com/MusaBukhari237/receiptbench">GitHub ↗</a>
+      </nav>
+    </header>
+    <main>
+      <section class="masthead">
+        <div class="intro">
+          <p class="category">The receipt desk</p>
+          <h1>Good coffee. Clear receipts.</h1>
+          <p class="description">
+            Build a tidy thermal receipt with exact decimal totals, then send it to your printer.
+          </p>
+        </div>
+        <figure class="scene">
+          <img
+            src="Scene.jpg"
+            alt="Coffee served on a warm café table"
+            width="1000"
+            height="667"
+            fetchpriority="high"
+          />
+        </figure>
+      </section>
+      <div class="workspace" id="workspace">
+        <section class="panel input" aria-labelledby="settings">
+          <h2 id="settings">Build your receipt</h2>
+          <div class="fields">
+            <label class="wide"
+              >One item per line<textarea
+                id="items"
+                placeholder="Item | Quantity | Unit price"
+                maxlength="8000"
+                spellcheck="false"
+                rows="6"
+              ></textarea></label
+            ><label
+              >Currency<select id="currency">
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="GBP">GBP</option>
+                <option value="CAD">CAD</option>
+                <option value="PKR">PKR</option>
+              </select></label
+            ><label
+              >Paper<select id="paper">
+                <option value="58">58 mm</option>
+                <option value="80">80 mm</option>
+              </select></label
+            >
+          </div>
+          <div class="actions">
+            <button type="button" id="run">Preview receipt</button
+            ><button type="button" class="quiet" id="example">Load example</button>
+          </div>
+          <p class="note">
+            Enter item | quantity | unit price. Use a decimal point and up to two decimal places.
+          </p>
+        </section>
+        <section class="panel output" aria-labelledby="output" id="output-panel">
+          <h2 id="output" tabindex="-1">The printed piece</h2>
+          <p class="result-status" id="result-status" aria-live="polite">Ready when you are</p>
+          <div class="result" id="result" aria-live="polite">
+            Load the example or enter your own input.
+          </div>
+        </section>
+      </div>
+      <details class="guide" id="guide">
+        <summary>How to use ReceiptBench</summary>
+        <ol>
+          <li>Enter one item per line as name | quantity | unit price.</li>
+          <li>Choose a currency and 58 mm or 80 mm paper.</li>
+          <li>Generate the receipt and use its Print receipt button.</li>
+        </ol>
+      </details>
+    </main>
+    <footer>
+      <span
+        >ReceiptBench ·
+        <a href="https://github.com/MusaBukhari237/receiptbench/blob/main/LICENSE"
+          >MIT licensed</a
+        ></span
+      ><span class="credits"
+        ><a href="https://www.leadceleris.com/">LeadCeleris</a
+        ><a href="https://www.aifficiento.biz/">AIFFICIENTO</a
+        ><a href="Assets.md">Photo credits</a></span
+      >
+    </footer>
+  </body>
 </html>
